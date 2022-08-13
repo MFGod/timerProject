@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button } from '../Button/Button';
 import { ButtonStyle } from '../Button/ButtonStyle';
 import { StyledHeader } from '../styledComponents/StyledHeader';
+
 export const Header = () => {
   return (
     <StyledHeader>

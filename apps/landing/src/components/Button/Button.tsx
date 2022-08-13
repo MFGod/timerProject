@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-interface componentNameProps {
+interface ButtonProps {
   color?: string;
   className?: string;
   text: string;
 }
 
-export const Button = ({ color, className, text }: componentNameProps) => {
+export const Button: React.FC<ButtonProps> = ({ color, className, text }) => {
   return (
     <button className={className} color={color}>
       {text}
