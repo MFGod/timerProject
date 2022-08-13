@@ -1,22 +1,18 @@
 import * as React from 'react';
 import { Fragment } from 'react-is';
-import { Button } from '../Button/button';
+import { Button } from '../Button/Button';
 import { Timer } from '../Timer/Timer';
-
-
 
 export const Main = () => {
   return (
-   <>
-      <Timer timerName='Теория' timer={Date()}/>
-      <Timer timerName='Практика' timer={Date()}/>
-      <Timer timer={Date()}/>
-      <Button name='Запуск'/>
-      <Button name='Пауза'/>
-      <Button name='Изменить режим'/>
-      <Button name='Закрыть сессию'/>
-   </>
+    <>
+      <Timer timerName="Теория" timer={new Date()} />
+      <Timer timerName="Практика" timer={new Date()} />
+      <Timer timer={new Date()} />
+      <Button text="Запуск" />
+      <Button text="Пауза" />
+      <Button text="Изменить режим" />
+      <Button text="Закрыть сессию" />
+    </>
   );
 };
-
-

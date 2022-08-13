@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { Button } from '../Button/button';
-
+import { Button } from '../Button/Button';
+import { ButtonStyle } from '../Button/ButtonStyle';
+import { StyledHeader } from '../styledComponents/StyledHeader';
 export const Header = () => {
   return (
-      <div>
-         <Button name="Язык"/>
-         <Button name="Тема"/>
-      </div>
+    <StyledHeader>
+      <ButtonStyle color="white" text="ЯЗЫК - RU" />
+      <ButtonStyle color="white" text="ТЕМА" />
+    </StyledHeader>
   );
 };
-
-
-

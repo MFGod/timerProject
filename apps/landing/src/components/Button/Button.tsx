@@ -1,13 +1,15 @@
 import * as React from 'react';
 
 interface componentNameProps {
-   name: string;
+  color?: string;
+  className?: string;
+  text: string;
 }
 
-export const Button = ({name}: componentNameProps) => {
+export const Button = ({ color, className, text }: componentNameProps) => {
   return (
-      <button>{name}</button>
+    <button className={className} color={color}>
+      {text}
+    </button>
   );
 };
-
-
