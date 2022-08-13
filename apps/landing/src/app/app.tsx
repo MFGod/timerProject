@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
+import { Footer } from '../components/Footer/Footer';
+import { Header } from '../components/Header/Header';
+
+import { Main } from '../components/Main/Main';
+//import NxWelcome from './nx-welcome';
 
 const StyledApp = styled.div`
   // Your style here
@@ -8,7 +12,10 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <NxWelcome title="landing" />
+      <Header/>
+      <Main/>
+      <Footer nickname='@nickname'/>
+      {/*<NxWelcome title="landing" />*/}
     </StyledApp>
   );
 }
