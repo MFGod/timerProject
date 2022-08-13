@@ -1,17 +1,16 @@
-import styled from 'styled-components';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
-
 import { Main } from '../components/Main/Main';
-//import NxWelcome from './nx-welcome';
+
+
 
 export function App() {
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer nickname="@nickname" />
-    </>
+      <>
+         <Header />
+         <Main />
+         <Footer nickname="@nickname" />
+      </>
   );
 }
 

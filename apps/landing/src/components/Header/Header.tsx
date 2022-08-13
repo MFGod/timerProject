@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Button } from '../Button/Button';
-import { ButtonStyle } from '../Button/ButtonStyle';
+import { StyledButton } from '../styledComponents/StyledButton';
+
 import { StyledHeader } from '../styledComponents/StyledHeader';
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <ButtonStyle color="white" text="ЯЗЫК - RU" />
-      <ButtonStyle color="white" text="ТЕМА" />
+      <StyledButton color="white" text="ЯЗЫК - RU" />
+      <StyledButton color="white" text="ТЕМА" />
     </StyledHeader>
   );
 };

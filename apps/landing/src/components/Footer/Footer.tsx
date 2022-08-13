@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyledFooter } from '../styledComponents/StyledFooter';
 
 
 interface FooterProps {
@@ -7,6 +8,6 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({nickname}) => {
   return (
-   <h1>Вы можете связаться со мной в telegram {nickname}</h1>
+   <StyledFooter>Вы можете связаться со мной в telegram {nickname}</StyledFooter>
   );
 };
