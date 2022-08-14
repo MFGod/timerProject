@@ -13,9 +13,9 @@ export const StyledButton = styled(Button)`
     }
   }};
 
-  width: auto;
   height: 42px;
   padding: 12px 24px;
+  text-transform: uppercase;
 
   font-weight: 700;
   font-size: 15px;

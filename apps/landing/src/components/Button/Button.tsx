@@ -4,11 +4,12 @@ interface ButtonProps {
   color?: string;
   className?: string;
   text: string;
+  onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({ color, className, text }) => {
+export const Button: React.FC<ButtonProps> = ({ color, className, text, onClick }) => {
   return (
-    <button className={className} color={color}>
+    <button onClick={onClick} className={className} color={color}>
       {text}
     </button>
   );

@@ -9,7 +9,7 @@ export const Timer: React.FC<TimerProps> = ({ timerName, timer }) => {
   return (
     <>
       <h1>{timerName}</h1>
-      <p>{timer.toDateString()}</p>
+      <p>{timer.toLocaleTimeString()}</p>
     </>
   );
 };
