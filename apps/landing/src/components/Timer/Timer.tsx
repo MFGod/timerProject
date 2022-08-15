@@ -9,7 +9,7 @@ export const Timer: React.FC<TimerProps> = ({ timerName, timer }) => {
   const [time, setTime] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => setTime(time + 1), 1000);
+    const interval = setInterval(() => setTime(time + 1), 1);
     return () => {
       clearInterval(interval);
     };
