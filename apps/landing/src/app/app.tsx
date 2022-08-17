@@ -14,22 +14,12 @@ export function App() {
   const [time, setTime] = useState(0);
   const [timerStart, setTimerStart] = useState(false);
   useEffect(() => {
-    const interval = setInterval(
-      () => timerStart && setTime((n) => n + 1),
-      1000
-    );
+    const interval = setInterval(() => timerStart && setTime((n) => n + 1), 10);
     return () => {
       clearInterval(interval);
     };
   }, [time, timerStart]);
 
-  const handleStart = () => {
-    setTimerStart(true);
-  };
-
-  const handleStop = () => {
-    setTimerStart(false);
-  };
   return (
     <MyContext.Provider value={{ time, setTimerStart }}>
       <GlobalStyle />
