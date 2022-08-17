@@ -6,22 +6,42 @@ import { StyledWrapper } from '../components/styledComponents/StyledWrapper';
 import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
 interface AppContextInterface {
   time?: number;
-  setTimerStart?: any;
+  setTimerStart?: (value: React.SetStateAction<boolean>) => void;
+  handleStart?: () => void;
+  handleStop?: () => void;
 }
 export const MyContext = React.createContext<AppContextInterface>({});
 
 export function App() {
   const [time, setTime] = useState(0);
   const [timerStart, setTimerStart] = useState(false);
+  const [teory, setTeory] = useState(0);
+  const [practice, setPractice] = useState(2);
+
+   setTeory(time);
+   setPractice(teory * 3)
+
   useEffect(() => {
-    const interval = setInterval(() => timerStart && setTime((n) => n + 1), 10);
+    //if (!time) {
+    //   setTimerStart(false)
+    //}
+    const interval = setInterval(() => timerStart && setTime(time + 1), 1000);
     return () => {
       clearInterval(interval);
     };
   }, [time, timerStart]);
 
+  const handleStart = () => {
+    setTimerStart((timerStart) => true);
+  };
+  const handleStop = () => {
+    setTimerStart((timerStart) => false);
+  };
+
   return (
-    <MyContext.Provider value={{ time, setTimerStart }}>
+    <MyContext.Provider
+      value={{ time, setTimerStart, handleStart, handleStop }}
+    >
       <GlobalStyle />
       <StyledWrapper>
         <Header />
