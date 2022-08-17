@@ -4,7 +4,7 @@ import * as React from 'react';
 
 interface TimerProps {
   timerName?: string;
-  time:number;
+  time:any;
 }
 
 export const Timer: React.FC<TimerProps> = ({ timerName, time }) => {
