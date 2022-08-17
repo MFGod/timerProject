@@ -6,20 +6,28 @@ import { StyledMainButton } from '../styledComponents/StyledMain';
 import { Timer } from '../Timer/Timer';
 //import { MyContext } from '../Timer/timerFunction';
 
-
-
 export const Main = () => {
   return (
     <div>
       <MyContext.Consumer>
-        {(time) => (
+        {(props) => (
           <Fragment>
-            <Timer timerName="Теория" time={time} />
-            <Timer timerName="Практика"time={time} />
+            <Timer timerName="Теория" time={props.time} />
+            <Timer timerName="Практика" time={props.time} />
             <StyledMainButton>
               <ButtonRow>
-                <StyledButton  text="Запуск" />
-                {/*<StyledButton onClick={} text="Пауза" />*/}
+                <StyledButton
+                  onClick={() => {
+                    props.setTimerStart(true);
+                  }}
+                  text="Запуск"
+                />
+                <StyledButton
+                  onClick={() => {
+                    props.setTimerStart(false);
+                  }}
+                  text="Пауза"
+                />
               </ButtonRow>
               <ButtonRow>
                 <StyledButton color="white" text="Изменить режим" />
