@@ -5,43 +5,56 @@ import { Main } from '../components/Main/Main';
 import { StyledWrapper } from '../components/styledComponents/StyledWrapper';
 import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
 interface AppContextInterface {
-  time?: number;
-  setTimerStart?: (value: React.SetStateAction<boolean>) => void;
   handleStart?: () => void;
   handleStop?: () => void;
+  changeMode?: () => void;
+  count: number;
 }
-export const MyContext = React.createContext<AppContextInterface>({});
+
+enum Mode {
+  Theory = 'theory',
+  Practice = 'practice',
+}
+
+export const MyContext = React.createContext<AppContextInterface>({count: 0});
 
 export function App() {
-  const [time, setTime] = useState(0);
-  const [timerStart, setTimerStart] = useState(false);
-  const [teory, setTeory] = useState(0);
-  const [practice, setPractice] = useState(2);
+  const [started, setStarted] = useState(false);
+  const [mode, setMode] = useState(Mode.Theory);
+  const [count, setCount] = useState<number>(0);
 
-   setTeory(time);
-   setPractice(teory * 3)
+
 
   useEffect(() => {
-    //if (!time) {
-    //   setTimerStart(false)
-    //}
-    const interval = setInterval(() => timerStart && setTime(time + 1), 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [time, timerStart]);
+    const interval = setInterval(() => {
+      if (started) {
+        switch (mode) {
+          case Mode.Theory:
+            setCount((n) => n + 1);
+            break;
 
-  const handleStart = () => {
-    setTimerStart((timerStart) => true);
-  };
-  const handleStop = () => {
-    setTimerStart((timerStart) => false);
+          case Mode.Practice:
+            setCount((n) => n - 1);
+            break;
+        }
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [started, mode]);
+
+  const handleStart = () => setStarted(true);
+
+  const handleStop = () => setStarted(false);
+
+  const changeMode = () => {
+   handleStop();
+   if (mode === Mode.Theory) setMode(Mode.Practice);
+   else setMode(Mode.Theory);
   };
 
   return (
-    <MyContext.Provider
-      value={{ time, setTimerStart, handleStart, handleStop }}
-    >
+    <MyContext.Provider value={{ count, handleStart, handleStop, changeMode }}>
       <GlobalStyle />
       <StyledWrapper>
         <Header />

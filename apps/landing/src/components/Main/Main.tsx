@@ -12,16 +12,16 @@ export const Main = () => {
       <MyContext.Consumer>
         {(props) => (
           <Fragment>
-            <Timer timerName="Теория" time={props.time} />
-            <Timer timerName="Практика" time={props.time} />
-            <Timer time={props.time} />
+            <Timer timerName="Теория" time={0} />
+            <Timer timerName="Практика" time={0} />
+            <Timer time={props.count} />
             <StyledMainButton>
               <ButtonRow>
                 <StyledButton onClick={props.handleStart}  text="Запуск"/>
-                <StyledButton onClick={props.handleStop} text="Пауза"/>
+                <StyledButton  onClick={props.handleStop} text="Пауза"/>
               </ButtonRow>
               <ButtonRow>
-                <StyledButton color="white" text="Изменить режим" />
+                <StyledButton onClick={props.changeMode} color="white" text="Изменить режим" />
                 <StyledButton color="white" text="Закрыть сессию" />
               </ButtonRow>
             </StyledMainButton>
