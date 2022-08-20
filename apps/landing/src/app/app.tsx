@@ -52,15 +52,7 @@ export function App() {
 
     return () => clearInterval(interval);
   }, [started, mode, count]);
-  // if (timerStart && isSessionToggled) {
-  //   if (time) {
-  //     setTime(time - 1);
-  //     setPracticeTime(practiceTime - 1);
-  //   }
-  // } else if (timerStart && !isSessionToggled) {
-  //   setTime((n) => n + 1);
-  //   setTheoryTime((n) => n + 1);
-  // }
+
   const handleStart = () => setStarted(true);
 
   const handleStop = () => setStarted(false);
@@ -76,17 +68,6 @@ export function App() {
       setPracticeTime(count * 3);
       setCount(count * 3);
     }
-
-    //   if (props.isSessionToggled) {
-    //     props.setPracticeTime(props.theoryTime);
-    //     props.setTime(props.theoryTime);
-    //   } else {
-    //     props.setTime(Number(props.time) * 3);
-    //     props.setPracticeTime(Number(props.time) * 3);
-    //   }
-    //
-    //
-    // }}
   };
 
   return (
