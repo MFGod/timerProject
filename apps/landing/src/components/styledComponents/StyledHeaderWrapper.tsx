@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const StyledTimerWrapper = styled.div`
+export const StyledHeaderWrapper = styled.div`
   display: flex;
-  justify-content:center;
-  flex-direction: column;
+  justify-content:end;
   flex-wrap: wrap;
+  width: 630px;
   gap:10px;
   padding:5px;
   margin:10px;

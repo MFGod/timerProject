@@ -5,6 +5,7 @@ interface TimerProps {
   time: number;
   color: string;
   className?: string;
+  fontSize?:string;
 }
 
 export const Timer: React.FC<TimerProps> = ({
@@ -12,12 +13,13 @@ export const Timer: React.FC<TimerProps> = ({
   time,
   color,
   className,
+  fontSize,
 }) => {
 
   return (
       <div>
-         <StyledTimerDescription color={color} timerName={timerName}/>
-         <StyledCounter time={time} className={className} color={color}/>
+         <StyledTimerDescription font-size={fontSize} color={color} timerName={timerName}/>
+         <StyledCounter font-size={fontSize} time={time} className={className} color={color}/>
       </div>
   );
 };

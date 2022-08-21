@@ -4,25 +4,32 @@ import { Timer } from '../Timer/Timer';
 import { TimerDescription } from '../Timer/TimerDescription';
 
 export const StyledTimer = styled(Timer)`
-  /*color: #ffd600;
-   
   ${(props) => {
-    switch (props.color) {
-      case 'white':
-        return 'color:#FFFFFF';
-
-      case 'yellow':
-        return 'color:#FFD600';
+    switch (props.fontSize) {
+      case '96px':
+        return 'font-size: 96px; margin: 56px 10px 68px 10px';
       default:
-        return 'color:#fe2e2e';
+        return 'font-size: 32px;  margin: 0px 0px 10px 0px';
     }
-  }}; */
+  }};
+  
 `;
 
   export const StyledCounter = styled(Counter)`
    color:#FFFFFF;
+   ${(props) => {
+    switch (props.color) {
+      case 'yellow':
+        return 'color:#FFD600';
+      case 'white':
+        return 'color:#F5F5F5';
+      default:
+        return 'color:#F5F5F5';
+    }
+  }};
   `
   export const StyledTimerDescription = styled(TimerDescription)`
+ margin: 0px 0px 10px 0px;
    color: yellow;
   `
 

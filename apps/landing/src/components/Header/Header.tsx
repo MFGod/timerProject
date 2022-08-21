@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyledButton } from '../styledComponents/StyledButton';
 
 import { StyledHeader } from '../styledComponents/StyledHeader';
+import { StyledHeaderWrapper } from '../styledComponents/StyledHeaderWrapper';
 
 export const Header = () => {
   const changeLanguage = (language: string) => {
@@ -13,12 +14,14 @@ export const Header = () => {
 
   return (
     <StyledHeader>
+      <StyledHeaderWrapper>
       <StyledButton
         onClick={() => changeLanguage(language)}
         color="white"
         text={`${language}`}
       />
       <StyledButton color="white" text="ТЕМА" />
+      </StyledHeaderWrapper>
     </StyledHeader>
   );
 };
