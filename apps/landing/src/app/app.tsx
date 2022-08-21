@@ -4,7 +4,7 @@ import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
 import { StyledWrapper } from '../components/styledComponents/StyledWrapper';
 import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
-interface AppContextInterface {
+interface TimerContextInterface {
   handleStart?: () => void;
   handleStop?: () => void;
   changeMode?: () => void;
@@ -13,17 +13,30 @@ interface AppContextInterface {
   practiceTime: number;
   closeSession?: () => void;
 }
+interface LanguageContextInterface {
+  language?: string;
+  changeLanguage?: () => void;
+}
+
+export enum Language {
+  RU = 'Russian',
+  ENG = 'English',
+}
 
 enum Mode {
   Theory = 'theory',
   Practice = 'practice',
 }
 
-export const MyContext = React.createContext<AppContextInterface>({
+export const TimerContext = React.createContext<TimerContextInterface>({
   count: 0,
   theoryTime: 0,
   practiceTime: 0,
 });
+
+export const LanguageContext = React.createContext<LanguageContextInterface>(
+  {}
+);
 
 export function App() {
   const [started, setStarted] = useState(false);
@@ -31,6 +44,7 @@ export function App() {
   const [count, setCount] = useState<number>(0);
   const [theoryTime, setTheoryTime] = useState<number>(0);
   const [practiceTime, setPracticeTime] = useState<number>(0);
+  const [language, setLanguage] = useState(Language.RU);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,6 +71,12 @@ export function App() {
   const handleStart = () => setStarted(true);
 
   const handleStop = () => setStarted(false);
+
+  const changeLanguage = () => {
+    language === Language.RU
+      ? setLanguage(Language.ENG)
+      : setLanguage(Language.RU);
+  };
 
   const changeMode = () => {
     handleStop();
@@ -88,7 +108,7 @@ export function App() {
     setTheoryTime(0);
   };
   return (
-    <MyContext.Provider
+    <TimerContext.Provider
       value={{
         count,
         handleStart,
@@ -101,11 +121,13 @@ export function App() {
     >
       <GlobalStyle />
       <StyledWrapper>
-        <Header />
-        <Main />
-        <Footer nickname="@nickname" />
+        <LanguageContext.Provider value={{ language, changeLanguage }}>
+          <Header />
+          <Main />
+          <Footer nickname="@nickname" />
+        </LanguageContext.Provider>
       </StyledWrapper>
-    </MyContext.Provider>
+    </TimerContext.Provider>
   );
 }
 
