@@ -3,6 +3,7 @@ interface CounterProps {
    time: number;
   color: string;
   className?: string;
+  fontSize?:string;
  }
 
 
@@ -11,6 +12,7 @@ interface CounterProps {
    time,
   color,
   className,
+  fontSize,
  }) => {
 
    const convertTimeToHHMMSS = (time: number) => {
@@ -18,7 +20,7 @@ interface CounterProps {
     };
   
    return (
-       <h2 color={color} className={className}> {convertTimeToHHMMSS(time)}</h2>
+       <h2 color={color} className={className} font-size={fontSize}> {convertTimeToHHMMSS(time)}</h2>
    );
  };
  

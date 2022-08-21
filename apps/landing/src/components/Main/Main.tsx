@@ -21,12 +21,13 @@ export const Main = () => {
                   time={props.theoryTime}
                 />
                 <StyledTimer
+                
                   color="white"
                   timerName="Практика"
                   time={props.practiceTime}
                 />
               </StyledTimerWrapper>
-              <StyledTimer color="yellow" time={props.count} />
+              <StyledTimer fontSize='96px' color="yellow" time={props.count} />
             </TimerWrapper>
             <StyledMainButton>
               <ButtonRow>

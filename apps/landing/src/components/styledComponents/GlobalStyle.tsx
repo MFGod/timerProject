@@ -3,7 +3,10 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
   html, body {
    height: 100%;
-   background-color: black;
+   background-color: #181818;
+   font-family: 'Inter', sans-serif;
+   font-weight: 700;
+
   }
   
   #root{

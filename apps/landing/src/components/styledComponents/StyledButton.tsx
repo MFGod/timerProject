@@ -12,7 +12,7 @@ export const StyledButton = styled(Button)`
         return 'background:#B40000; color:#F5F5F5';
     }
   }};
-
+   border:none;
   height: 42px;
   padding: 12px 24px;
   text-transform: uppercase;
