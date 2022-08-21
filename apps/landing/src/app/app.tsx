@@ -11,6 +11,7 @@ interface AppContextInterface {
   count: number;
   theoryTime: number;
   practiceTime: number;
+  closeSession?: () => void;
 }
 
 enum Mode {
@@ -69,7 +70,23 @@ export function App() {
       setCount(count * 3);
     }
   };
-
+  const closeSession = () => {
+    localStorage.setItem(
+      'User',
+      JSON.stringify({
+        count: count,
+        practiceTime: practiceTime,
+        theoryTime: theoryTime,
+      })
+    );
+    if (mode === Mode.Practice) {
+      setMode(Mode.Theory);
+    }
+    handleStop();
+    setCount(0);
+    setPracticeTime(0);
+    setTheoryTime(0);
+  };
   return (
     <MyContext.Provider
       value={{
@@ -79,6 +96,7 @@ export function App() {
         changeMode,
         theoryTime,
         practiceTime,
+        closeSession,
       }}
     >
       <GlobalStyle />
