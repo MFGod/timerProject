@@ -21,13 +21,12 @@ export const Main = () => {
                   time={props.theoryTime}
                 />
                 <StyledTimer
-                
                   color="white"
                   timerName="Практика"
                   time={props.practiceTime}
                 />
               </StyledTimerWrapper>
-              <StyledTimer fontSize='96px' color="yellow" time={props.count} />
+              <StyledTimer fontSize="96px" color="yellow" time={props.count} />
             </TimerWrapper>
             <StyledMainButton>
               <ButtonRow>
@@ -40,7 +39,11 @@ export const Main = () => {
                   color="white"
                   text="Изменить режим"
                 />
-                <StyledButton color="white" text="Закрыть сессию" />
+                <StyledButton
+                  onClick={props.closeSession}
+                  color="white"
+                  text="Закрыть сессию"
+                />
               </ButtonRow>
             </StyledMainButton>
           </Fragment>
