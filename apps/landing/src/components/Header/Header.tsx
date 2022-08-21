@@ -1,27 +1,29 @@
 import { useState } from 'react';
 import { StyledButton } from '../styledComponents/StyledButton';
-
+import { LanguageContext } from '../../app/app';
 import { StyledHeader } from '../styledComponents/StyledHeader';
+import { Language } from '../../app/app';
 import { StyledHeaderWrapper } from '../styledComponents/StyledHeaderWrapper';
-
 export const Header = () => {
-  const changeLanguage = (language: string) => {
-    language === 'ЯЗЫК - RU'
-      ? setLanguage('LANGUAGE - EN')
-      : setLanguage('ЯЗЫК - RU');
-  };
-  const [language, setLanguage] = useState('ЯЗЫК - RU');
-
   return (
-    <StyledHeader>
-      <StyledHeaderWrapper>
-      <StyledButton
-        onClick={() => changeLanguage(language)}
-        color="white"
-        text={`${language}`}
-      />
-      <StyledButton color="white" text="ТЕМА" />
-      </StyledHeaderWrapper>
-    </StyledHeader>
+    <LanguageContext.Consumer>
+      {(props) => (
+        <StyledHeader>
+          <StyledHeaderWrapper>
+            <StyledButton
+              onClick={props.changeLanguage}
+              color="white"
+              text={
+                props.language === Language.RU ? 'Язык - RU' : 'Language - ENG'
+              }
+            />
+            <StyledButton
+              color="white"
+              text={props.language === Language.RU ? 'Тема' : 'Theme'}
+            />
+          </StyledHeaderWrapper>
+        </StyledHeader>
+      )}
+    </LanguageContext.Consumer>
   );
 };
