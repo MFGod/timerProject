@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { TimerContext } from '../../app/app';
+import { ThemeContext, TimerContext } from '../../app/app';
 import { ButtonRow } from '../styledComponents/ButtonRow';
 import { StyledButton } from '../styledComponents/StyledButton';
 import { StyledMainButton } from '../styledComponents/StyledMain';
@@ -8,6 +8,7 @@ import { StyledTimerWrapper } from '../styledComponents/StyledTimerWrapper';
 import { TimerWrapper } from '../styledComponents/TimerWrapper';
 import { LanguageContext } from '../../app/app';
 import { Language } from '../../app/app';
+
 export const Main = () => {
   return (
     <div>
@@ -18,24 +19,30 @@ export const Main = () => {
               <Fragment>
                 <TimerWrapper>
                   <StyledTimerWrapper>
-                    <StyledTimer
-                      color="white"
-                      timerName={
-                        languageProps.language === Language.RU
-                          ? 'Теория'
-                          : 'Theory'
-                      }
-                      time={timerProps.theoryTime}
-                    />
-                    <StyledTimer
-                      color="white"
-                      timerName={
-                        languageProps.language === Language.RU
-                          ? 'Практика'
-                          : 'Practice'
-                      }
-                      time={timerProps.practiceTime}
-                    />
+                    <ThemeContext.Consumer>
+                      {(themeProps) => (
+                        <>
+                          <StyledTimer
+                            color={String(themeProps.theme)}
+                            timerName={
+                              languageProps.language === Language.RU
+                                ? 'Теория'
+                                : 'Theory'
+                            }
+                            time={timerProps.theoryTime}
+                          />
+                          <StyledTimer
+                            color={String(themeProps.theme)}
+                            timerName={
+                              languageProps.language === Language.RU
+                                ? 'Практика'
+                                : 'Practice'
+                            }
+                            time={timerProps.practiceTime}
+                          />
+                        </>
+                      )}
+                    </ThemeContext.Consumer>
                   </StyledTimerWrapper>
                   <StyledTimer
                     fontSize="96px"

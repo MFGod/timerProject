@@ -18,6 +18,16 @@ interface LanguageContextInterface {
   changeLanguage?: () => void;
 }
 
+interface ThemeContextInterface {
+  theme?: string;
+  changeTheme?: () => void;
+}
+
+export enum Theme {
+  White = 'WhiteTheme',
+  Black = 'BlackTheme',
+}
+
 export enum Language {
   RU = 'Russian',
   ENG = 'English',
@@ -38,6 +48,8 @@ export const LanguageContext = React.createContext<LanguageContextInterface>(
   {}
 );
 
+export const ThemeContext = React.createContext<ThemeContextInterface>({});
+
 export function App() {
   const [started, setStarted] = useState(false);
   const [mode, setMode] = useState(Mode.Theory);
@@ -45,6 +57,7 @@ export function App() {
   const [theoryTime, setTheoryTime] = useState<number>(0);
   const [practiceTime, setPracticeTime] = useState<number>(0);
   const [language, setLanguage] = useState(Language.RU);
+  const [theme, setTheme] = useState(Theme.Black);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -107,6 +120,11 @@ export function App() {
     setPracticeTime(0);
     setTheoryTime(0);
   };
+
+  const changeTheme = () => {
+    theme === Theme.Black ? setTheme(Theme.White) : setTheme(Theme.Black);
+  };
+
   return (
     <TimerContext.Provider
       value={{
@@ -119,14 +137,16 @@ export function App() {
         closeSession,
       }}
     >
-      <GlobalStyle />
+      <ThemeContext.Provider value={{theme, changeTheme}}>
+      <GlobalStyle theme={theme}/>
       <StyledWrapper>
         <LanguageContext.Provider value={{ language, changeLanguage }}>
-          <Header />
-          <Main />
-          <Footer nickname="@nickname" />
+            <Header />
+            <Main />
+            <Footer nickname="@nickname" />
         </LanguageContext.Provider>
       </StyledWrapper>
+      </ThemeContext.Provider>
     </TimerContext.Provider>
   );
 }
