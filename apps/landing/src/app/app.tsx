@@ -95,7 +95,6 @@ export function App() {
     handleStop();
     if (mode === Mode.Practice) {
       setMode(Mode.Theory);
-      setPracticeTime(practiceTime);
       setCount(theoryTime);
     } else {
       setMode(Mode.Practice);
