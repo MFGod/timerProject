@@ -21,16 +21,18 @@ export const StyledTimer = styled(Timer)`
     switch (props.color) {
       case 'yellow':
         return 'color:#FFD600';
-      case 'white':
-        return 'color:#F5F5F5';
+      case 'WhiteTheme':
+        return 'color:#181818';
+      case 'BlackTheme':
+         return 'color: #F5F5F5';
       default:
-        return 'color:#F5F5F5';
+        return 'color:#181818';
     }
   }};
   `
   export const StyledTimerDescription = styled(TimerDescription)`
  margin: 0px 0px 10px 0px;
-   color: yellow;
+   color: #FFD600;
   `
 
 
