@@ -71,7 +71,6 @@ export function App() {
           case Mode.Practice:
             if (count > 0) {
               setCount((n) => n - 1);
-              setPracticeTime(practiceTime);
             }
             break;
         }
