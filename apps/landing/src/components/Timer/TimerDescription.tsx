@@ -1,17 +1,16 @@
+import  React, {FC} from 'react';
 interface TimerDectriptionProps {
   timerName?: string;
   color: string;
   className?: string;
 }
 
-export const TimerDescription: React.FC<TimerDectriptionProps> = ({
+export const TimerDescription: FC<TimerDectriptionProps> = ({
   timerName,
   color,
   className,
-}) => {
-  return (
-    <h1 color={color} className={className}>
-      {timerName}
-    </h1>
-  );
-};
+}) => (
+  <h1 color={color} className={className}>
+    {timerName}
+  </h1>
+);

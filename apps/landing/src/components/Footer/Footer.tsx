@@ -1,14 +1,15 @@
-import * as React from 'react';
+import  React, {FC} from 'react';
 import { StyledFooter } from '../styledComponents/StyledFooter';
 import { LanguageContext } from '../../app/app';
 import { Language } from '../../app/app';
-import { StyledNickname } from '../styledComponents/StyledNickname';
+import { StyledNickname } from './Nickname';
+
 //text={props.language === Language.RU ? 'Тема' : 'Theme'}
 interface FooterProps {
   nickname: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ nickname }) => {
+export const Footer: FC<FooterProps> = ({ nickname }) => {
   return (
     <LanguageContext.Consumer>
       {(props) => (

@@ -1,3 +1,5 @@
+import  React, {FC} from 'react'; 
+
 interface CounterProps {
   time: number;
   color: string;
@@ -5,7 +7,7 @@ interface CounterProps {
   fontSize?: string;
 }
 
-export const Counter: React.FC<CounterProps> = ({
+export const Counter: FC<CounterProps> = ({
   time,
   color,
   className,

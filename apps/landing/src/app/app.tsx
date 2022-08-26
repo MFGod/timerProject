@@ -47,7 +47,6 @@ export const TimerContext = React.createContext<TimerContextInterface>({
 export const LanguageContext = React.createContext<LanguageContextInterface>(
   {}
 );
-
 export const ThemeContext = React.createContext<ThemeContextInterface>({});
 
 export function App() {

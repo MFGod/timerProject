@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {FC} from 'react';
 
 interface ButtonProps {
   color?: string;
@@ -7,15 +7,13 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   color,
   className,
   text,
   onClick,
-}) => {
-  return (
-    <button onClick={onClick} className={className} color={color}>
-      {text}
-    </button>
-  );
-};
+}) => (
+  <button onClick={onClick} className={className} color={color}>
+    {text}
+  </button>
+);

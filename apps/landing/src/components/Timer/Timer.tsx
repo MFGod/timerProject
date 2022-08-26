@@ -1,3 +1,5 @@
+import  React, {FC} from 'react';
+
 import {
   StyledCounter,
   StyledTimerDescription,
@@ -11,7 +13,7 @@ interface TimerProps {
   fontSize?: string;
 }
 
-export const Timer: React.FC<TimerProps> = ({
+export const Timer: FC<TimerProps> = ({
   timerName,
   time,
   color,

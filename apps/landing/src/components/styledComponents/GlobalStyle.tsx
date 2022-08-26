@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   html, body {
    height: 100%;
-
+   
    font-family: 'Inter', sans-serif;
    font-weight: 700;
 
@@ -15,11 +15,9 @@ export const GlobalStyle = createGlobalStyle`
          return 'background-color:#181818;';
      }
    }};
-
   }
 
   #root{
    height: 100%;
-   
   }
   `;
