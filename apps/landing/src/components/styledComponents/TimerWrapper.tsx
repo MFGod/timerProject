@@ -5,3 +5,4 @@ export const TimerWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+

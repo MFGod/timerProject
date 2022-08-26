@@ -1,4 +1,4 @@
-import  React, {FC} from 'react';
+import { FC } from 'react';
 import { StyledFooter } from '../styledComponents/StyledFooter';
 import { LanguageContext } from '../../app/app';
 import { Language } from '../../app/app';

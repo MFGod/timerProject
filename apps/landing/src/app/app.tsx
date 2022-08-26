@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
@@ -38,16 +38,16 @@ enum Mode {
   Practice = 'practice',
 }
 
-export const TimerContext = React.createContext<TimerContextInterface>({
+export const TimerContext = createContext<TimerContextInterface>({
   count: 0,
   theoryTime: 0,
   practiceTime: 0,
 });
 
-export const LanguageContext = React.createContext<LanguageContextInterface>(
+export const LanguageContext = createContext<LanguageContextInterface>(
   {}
 );
-export const ThemeContext = React.createContext<ThemeContextInterface>({});
+export const ThemeContext = createContext<ThemeContextInterface>({});
 
 export function App() {
   const [started, setStarted] = useState(false);
