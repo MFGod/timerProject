@@ -135,15 +135,15 @@ export function App() {
         closeSession,
       }}
     >
-      <ThemeContext.Provider value={{theme, changeTheme}}>
-      <GlobalStyle theme={theme}/>
-      <StyledWrapper>
-        <LanguageContext.Provider value={{ language, changeLanguage }}>
+      <ThemeContext.Provider value={{ theme, changeTheme }}>
+        <GlobalStyle theme={theme} />
+        <StyledWrapper>
+          <LanguageContext.Provider value={{ language, changeLanguage }}>
             <Header />
             <Main />
             <Footer nickname="@nickname" />
-        </LanguageContext.Provider>
-      </StyledWrapper>
+          </LanguageContext.Provider>
+        </StyledWrapper>
       </ThemeContext.Provider>
     </TimerContext.Provider>
   );

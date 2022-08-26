@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -8,13 +8,13 @@ export const GlobalStyle = createGlobalStyle`
    font-weight: 700;
 
    ${(themeProps) => {
-    switch (themeProps.theme) {
-      case 'WhiteTheme':
-        return 'background-color:#F5F5F5;';
-      default:
-        return 'background-color:#181818;';
-    }
-  }};
+     switch (themeProps.theme) {
+       case 'WhiteTheme':
+         return 'background-color:#F5F5F5;';
+       default:
+         return 'background-color:#181818;';
+     }
+   }};
 
   }
 
@@ -22,4 +22,4 @@ export const GlobalStyle = createGlobalStyle`
    height: 100%;
    
   }
-  `
+  `;

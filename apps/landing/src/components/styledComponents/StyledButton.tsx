@@ -12,13 +12,13 @@ export const StyledButton = styled(Button)`
         return 'background:#F5F5F5; color:#181818';
       case 'whiteWhiteTheme':
         return 'background:#181818; color:#F5F5F5';
-      
+
       default:
         return 'background:#B40000; color:#F5F5F5';
     }
   }};
 
-   border:none;
+  border: none;
   height: 42px;
   padding: 12px 24px;
   text-transform: uppercase;

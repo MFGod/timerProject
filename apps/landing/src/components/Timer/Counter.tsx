@@ -1,26 +1,24 @@
-
 interface CounterProps {
-   time: number;
+  time: number;
   color: string;
   className?: string;
-  fontSize?:string;
- }
+  fontSize?: string;
+}
 
-
-
- export const Counter: React.FC<CounterProps> = ({
-   time,
+export const Counter: React.FC<CounterProps> = ({
+  time,
   color,
   className,
   fontSize,
- }) => {
+}) => {
+  const convertTimeToHHMMSS = (time: number) => {
+    return new Date(1970, 0, 0, 0, 0, time, 0).toLocaleTimeString();
+  };
 
-   const convertTimeToHHMMSS = (time: number) => {
-      return new Date(1970, 0, 0, 0, 0, time, 0).toLocaleTimeString();
-    };
-  
-   return (
-       <h2 color={color} className={className} font-size={fontSize}> {convertTimeToHHMMSS(time)}</h2>
-   );
- };
- 
+  return (
+    <h2 color={color} className={className} font-size={fontSize}>
+      {' '}
+      {convertTimeToHHMMSS(time)}
+    </h2>
+  );
+};

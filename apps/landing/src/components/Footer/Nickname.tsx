@@ -5,7 +5,5 @@ interface NicknameProps {
 }
 
 export const Nickname: React.FC<NicknameProps> = ({ nickname }) => {
-  return (
-    <span>{nickname}</span>
-  );
+  return <span>{nickname}</span>;
 };

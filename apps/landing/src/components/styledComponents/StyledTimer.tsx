@@ -12,27 +12,24 @@ export const StyledTimer = styled(Timer)`
         return 'font-size: 32px;  margin: 0px 0px 10px 0px';
     }
   }};
-  
 `;
 
-  export const StyledCounter = styled(Counter)`
-   color:#FFFFFF;
-   ${(props) => {
+export const StyledCounter = styled(Counter)`
+  color: #ffffff;
+  ${(props) => {
     switch (props.color) {
       case 'yellow':
         return 'color:#FFD600';
       case 'WhiteTheme':
         return 'color:#181818';
       case 'BlackTheme':
-         return 'color: #F5F5F5';
+        return 'color: #F5F5F5';
       default:
         return 'color:#181818';
     }
   }};
-  `
-  export const StyledTimerDescription = styled(TimerDescription)`
- margin: 0px 0px 10px 0px;
-   color: #FFD600;
-  `
-
-
+`;
+export const StyledTimerDescription = styled(TimerDescription)`
+  margin: 0px 0px 10px 0px;
+  color: #ffd600;
+`;
