@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Fragment } from 'react';
+import {  useContext } from 'react';
 import { ThemeContext, TimerContext } from '../../app/app';
-
 import { LanguageContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
 import { StyledButton } from '../Button/Button';
@@ -37,72 +36,53 @@ const ButtonRow = styled.div`
 `;
 
 export const Main = () => {
+const themeProps = useContext(ThemeContext);
+const timerProps = useContext(TimerContext);
+const languageProps = useContext(LanguageContext);
+
   return (
     <div>
-      <TimerContext.Consumer>
-        {(timerProps) => (
-          <LanguageContext.Consumer>
-            {(languageProps) => (
-              <Fragment>
-                <TimerWrapper>
-                  <StyledTimerWrapper>
-                    <ThemeContext.Consumer>
-                      {(themeProps) => (
-                        <>
-                          <SecondaryTimer
-                            color={String(themeProps.theme)}
-                            timerName={translation(
-                              languageProps.language,
-                              'theory'
-                            )}
-                            time={timerProps.theoryTime}
-                          />
-                          <SecondaryTimer
-                            color={String(themeProps.theme)}
-                            timerName={translation(
-                              languageProps.language,
-                              'practice'
-                            )}
-                            time={timerProps.practiceTime}
-                          />
-                        </>
-                      )}
-                    </ThemeContext.Consumer>
-                  </StyledTimerWrapper>
-                  <PrimaryTimer
-                    color="yellow"
-                    time={timerProps.count}
-                  />
-                </TimerWrapper>
-                <StyledMainButton>
-                  <ButtonRow>
-                    <StyledButton
-                      onClick={timerProps.handleStart}
-                      text={translation(languageProps.language, 'start')}
-                    />
-                    <StyledButton
-                      onClick={timerProps.handleStop}
-                      text={translation(languageProps.language, 'pause')}
-                    />
-                  </ButtonRow>
-                  <ButtonRow>
-                    <StyledButton
-                      onClick={timerProps.changeMode}
-                      color="white"
-                      text={translation(languageProps.language, 'changeMode')}
-                    />
-                    <StyledButton
-                      onClick={timerProps.closeSession}
-                      color="white"
-                      text={translation(languageProps.language, 'closeSession')}
-                    />
-                  </ButtonRow>
-                </StyledMainButton>
-              </Fragment>
-            )}
-          </LanguageContext.Consumer>
-        )}
-      </TimerContext.Consumer>
+      <TimerWrapper>
+        <StyledTimerWrapper>
+          <>
+            <SecondaryTimer
+              color={String(themeProps.theme)}
+              timerName={translation(languageProps.language, 'theory')}
+              time={timerProps.theoryTime}
+            />
+            <SecondaryTimer
+              color={String(themeProps.theme)}
+              timerName={translation(languageProps.language, 'practice')}
+              time={timerProps.practiceTime}
+            />
+          </>
+        </StyledTimerWrapper>
+        <PrimaryTimer color="yellow" time={timerProps.count} />
+      </TimerWrapper>
+      <StyledMainButton>
+        <ButtonRow>
+          <StyledButton
+            onClick={timerProps.handleStart}
+            text={translation(languageProps.language, 'start')}
+          />
+          <StyledButton
+            onClick={timerProps.handleStop}
+            text={translation(languageProps.language, 'pause')}
+          />
+        </ButtonRow>
+        <ButtonRow>
+          <StyledButton
+            onClick={timerProps.changeMode}
+            color="white"
+            text={translation(languageProps.language, 'changeMode')}
+          />
+          <StyledButton
+            onClick={timerProps.closeSession}
+            color="white"
+            text={translation(languageProps.language, 'closeSession')}
+          />
+        </ButtonRow>
+      </StyledMainButton>
     </div>
   );
 };

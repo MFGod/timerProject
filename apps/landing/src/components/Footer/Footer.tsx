@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { LanguageContext } from '../../app/app';
 
 import styled from 'styled-components';
@@ -19,14 +19,11 @@ interface FooterProps {
 }
 
 export const Footer: FC<FooterProps> = ({ nickname }) => {
+  const languageProps = useContext(LanguageContext);
   return (
-    <LanguageContext.Consumer>
-      {(props) => (
-        <StyledFooter>
-          {translation(props.language, 'contacts')}
-          <StyledNickname>{nickname}</StyledNickname>
-        </StyledFooter>
-      )}
-    </LanguageContext.Consumer>
+    <StyledFooter>
+      {translation(languageProps.language, 'contacts')}
+      <StyledNickname>{nickname}</StyledNickname>
+    </StyledFooter>
   );
 };
