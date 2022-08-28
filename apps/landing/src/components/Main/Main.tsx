@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { Fragment } from 'react';
 import { ThemeContext, TimerContext } from '../../app/app';
-import { StyledButton } from '../styledComponents/StyledButton';
-import { StyledTimer } from '../styledComponents/StyledTimer';
+
 import { LanguageContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
+import { StyledButton } from '../Button/Button';
+import { PrimaryTimer, SecondaryTimer } from '../Timer/Timer';
 
 const TimerWrapper = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ export const Main = () => {
                     <ThemeContext.Consumer>
                       {(themeProps) => (
                         <>
-                          <StyledTimer
+                          <SecondaryTimer
                             color={String(themeProps.theme)}
                             timerName={translation(
                               languageProps.language,
@@ -56,7 +57,7 @@ export const Main = () => {
                             )}
                             time={timerProps.theoryTime}
                           />
-                          <StyledTimer
+                          <SecondaryTimer
                             color={String(themeProps.theme)}
                             timerName={translation(
                               languageProps.language,
@@ -68,8 +69,7 @@ export const Main = () => {
                       )}
                     </ThemeContext.Consumer>
                   </StyledTimerWrapper>
-                  <StyledTimer
-                    fontSize="96px"
+                  <PrimaryTimer
                     color="yellow"
                     time={timerProps.count}
                   />

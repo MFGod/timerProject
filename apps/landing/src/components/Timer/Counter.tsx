@@ -1,4 +1,5 @@
 import { FC } from 'react'; 
+import styled from 'styled-components';
 
 interface CounterProps {
   time: number;
@@ -24,3 +25,20 @@ export const Counter: FC<CounterProps> = ({
     </h2>
   );
 };
+
+
+export const StyledCounter = styled(Counter)`
+  color: #ffffff;
+  ${(props) => {
+    switch (props.color) {
+      case 'yellow':
+        return 'color:#FFD600';
+      case 'WhiteTheme':
+        return 'color:#181818';
+      case 'BlackTheme':
+        return 'color: #F5F5F5';
+      default:
+        return 'color:#181818';
+    }
+  }};
+`;

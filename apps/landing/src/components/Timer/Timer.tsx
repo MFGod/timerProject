@@ -1,9 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import { StyledCounter } from './Counter';
 import { TimerDescription } from './TimerDescription';
-import {
-  StyledCounter,
-} from '../styledComponents/StyledTimer';
 
 const StyledTimerDescription = styled(TimerDescription)`
   margin: 0px 0px 10px 0px;
@@ -15,7 +13,6 @@ interface TimerProps {
   time: number;
   color: string;
   className?: string;
-  fontSize?: string;
 }
 
 export const Timer: FC<TimerProps> = ({
@@ -23,17 +20,14 @@ export const Timer: FC<TimerProps> = ({
   time,
   color,
   className,
-  fontSize,
 }) => {
   return (
     <div>
       <StyledTimerDescription
-        font-size={fontSize}
         color={color}
         timerName={timerName}
       />
       <StyledCounter
-        font-size={fontSize}
         time={time}
         className={className}
         color={color}
@@ -41,3 +35,12 @@ export const Timer: FC<TimerProps> = ({
     </div>
   );
 };
+
+export const PrimaryTimer = styled(Timer)`
+   font-size: 96px;
+   margin: 46px 0px 58px 15px;
+`
+export const SecondaryTimer = styled(Timer)`
+   font-size: 32px;
+   margin: 0px 10px 10px 0px;
+`

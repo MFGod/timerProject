@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { StyledButton } from '../styledComponents/StyledButton';
+
 import { LanguageContext, ThemeContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
+import { StyledButton } from '../Button/Button';
 
 const StyledHeader = styled.header`
   display: flex;

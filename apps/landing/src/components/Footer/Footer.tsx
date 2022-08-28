@@ -1,9 +1,12 @@
 import { FC } from 'react';
 import { LanguageContext } from '../../app/app';
-import { StyledNickname } from './Nickname';
+
 import styled from 'styled-components';
 import { translation } from '../../translation/tranlations';
 
+const StyledNickname = styled.span`
+  color: #b40000;
+`;
 const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
