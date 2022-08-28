@@ -1,9 +1,14 @@
 import { FC } from 'react';
-
+import styled from 'styled-components';
+import { TimerDescription } from './TimerDescription';
 import {
   StyledCounter,
-  StyledTimerDescription,
 } from '../styledComponents/StyledTimer';
+
+const StyledTimerDescription = styled(TimerDescription)`
+  margin: 0px 0px 10px 0px;
+  color: #ffd600;
+`;
 
 interface TimerProps {
   timerName?: string;

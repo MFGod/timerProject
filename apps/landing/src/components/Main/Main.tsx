@@ -1,13 +1,39 @@
+import styled from 'styled-components';
 import { Fragment } from 'react';
 import { ThemeContext, TimerContext } from '../../app/app';
-import { ButtonRow } from '../styledComponents/ButtonRow';
 import { StyledButton } from '../styledComponents/StyledButton';
-import { StyledMainButton } from '../styledComponents/StyledMain';
 import { StyledTimer } from '../styledComponents/StyledTimer';
-import { StyledTimerWrapper } from '../styledComponents/StyledTimerWrapper';
-import { TimerWrapper } from '../styledComponents/TimerWrapper';
 import { LanguageContext } from '../../app/app';
-import { Language } from '../../app/app';
+import { translation } from '../../translation/tranlations';
+
+const TimerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledTimerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 5px;
+  margin: 10px;
+`;
+
+const StyledMainButton = styled.div`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+
+const ButtonRow = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+`;
 
 export const Main = () => {
   return (
@@ -24,20 +50,18 @@ export const Main = () => {
                         <>
                           <StyledTimer
                             color={String(themeProps.theme)}
-                            timerName={
-                              languageProps.language === Language.RU
-                                ? 'Теория'
-                                : 'Theory'
-                            }
+                            timerName={translation(
+                              languageProps.language,
+                              'theory'
+                            )}
                             time={timerProps.theoryTime}
                           />
                           <StyledTimer
                             color={String(themeProps.theme)}
-                            timerName={
-                              languageProps.language === Language.RU
-                                ? 'Практика'
-                                : 'Practice'
-                            }
+                            timerName={translation(
+                              languageProps.language,
+                              'practice'
+                            )}
                             time={timerProps.practiceTime}
                           />
                         </>
@@ -54,39 +78,23 @@ export const Main = () => {
                   <ButtonRow>
                     <StyledButton
                       onClick={timerProps.handleStart}
-                      text={
-                        languageProps.language === Language.RU
-                          ? 'Запуск'
-                          : 'Start'
-                      }
+                      text={translation(languageProps.language, 'start')}
                     />
                     <StyledButton
                       onClick={timerProps.handleStop}
-                      text={
-                        languageProps.language === Language.RU
-                          ? 'Пауза'
-                          : 'Pause'
-                      }
+                      text={translation(languageProps.language, 'pause')}
                     />
                   </ButtonRow>
                   <ButtonRow>
                     <StyledButton
                       onClick={timerProps.changeMode}
                       color="white"
-                      text={
-                        languageProps.language === Language.RU
-                          ? 'Изменить режим'
-                          : 'Change mode'
-                      }
+                      text={translation(languageProps.language, 'changeMode')}
                     />
                     <StyledButton
                       onClick={timerProps.closeSession}
                       color="white"
-                      text={
-                        languageProps.language === Language.RU
-                          ? 'Закрыть сессию'
-                          : 'Close Session'
-                      }
+                      text={translation(languageProps.language, 'closeSession')}
                     />
                   </ButtonRow>
                 </StyledMainButton>

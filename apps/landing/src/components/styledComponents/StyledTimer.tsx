@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Counter } from '../Timer/Counter';
 import { Timer } from '../Timer/Timer';
-import { TimerDescription } from '../Timer/TimerDescription';
 
 export const StyledTimer = styled(Timer)`
   ${(props) => {
@@ -28,8 +27,4 @@ export const StyledCounter = styled(Counter)`
         return 'color:#181818';
     }
   }};
-`;
-export const StyledTimerDescription = styled(TimerDescription)`
-  margin: 0px 0px 10px 0px;
-  color: #ffd600;
 `;

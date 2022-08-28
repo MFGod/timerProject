@@ -1,10 +1,16 @@
 import { FC } from 'react';
-import { StyledFooter } from '../styledComponents/StyledFooter';
 import { LanguageContext } from '../../app/app';
-import { Language } from '../../app/app';
 import { StyledNickname } from './Nickname';
+import styled from 'styled-components';
+import { translation } from '../../translation/tranlations';
 
-//text={props.language === Language.RU ? 'Тема' : 'Theme'}
+const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 214, 0, 1);
+`;
+
 interface FooterProps {
   nickname: string;
 }
@@ -14,9 +20,7 @@ export const Footer: FC<FooterProps> = ({ nickname }) => {
     <LanguageContext.Consumer>
       {(props) => (
         <StyledFooter>
-          {props.language === Language.RU
-            ? `Вы можете связаться со мной в telegram \u00A0`
-            : `Contact me via telegram \u00A0`}
+          {translation(props.language, 'contacts')}
           <StyledNickname>{nickname}</StyledNickname>
         </StyledFooter>
       )}

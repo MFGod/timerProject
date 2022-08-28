@@ -2,8 +2,16 @@ import { createContext, useState, useEffect } from 'react';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
-import { StyledWrapper } from '../components/styledComponents/StyledWrapper';
 import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 interface TimerContextInterface {
   handleStart?: () => void;
   handleStop?: () => void;
@@ -14,7 +22,7 @@ interface TimerContextInterface {
   closeSession?: () => void;
 }
 interface LanguageContextInterface {
-  language?: string;
+  language: string;
   changeLanguage?: () => void;
 }
 
@@ -44,9 +52,9 @@ export const TimerContext = createContext<TimerContextInterface>({
   practiceTime: 0,
 });
 
-export const LanguageContext = createContext<LanguageContextInterface>(
-  {}
-);
+export const LanguageContext = createContext<LanguageContextInterface>({
+   language:  Language.RU, 
+});
 export const ThemeContext = createContext<ThemeContextInterface>({});
 
 export function App() {
