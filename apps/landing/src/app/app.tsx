@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
-import { StyledWrapper } from '../components/styledComponents/StyledWrapper';
 import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 interface TimerContextInterface {
   handleStart?: () => void;
   handleStop?: () => void;
@@ -14,7 +22,7 @@ interface TimerContextInterface {
   closeSession?: () => void;
 }
 interface LanguageContextInterface {
-  language?: string;
+  language: string;
   changeLanguage?: () => void;
 }
 
@@ -38,17 +46,16 @@ enum Mode {
   Practice = 'practice',
 }
 
-export const TimerContext = React.createContext<TimerContextInterface>({
+export const TimerContext = createContext<TimerContextInterface>({
   count: 0,
   theoryTime: 0,
   practiceTime: 0,
 });
 
-export const LanguageContext = React.createContext<LanguageContextInterface>(
-  {}
-);
-
-export const ThemeContext = React.createContext<ThemeContextInterface>({});
+export const LanguageContext = createContext<LanguageContextInterface>({
+   language:  Language.RU, 
+});
+export const ThemeContext = createContext<ThemeContextInterface>({});
 
 export function App() {
   const [started, setStarted] = useState(false);
@@ -135,15 +142,15 @@ export function App() {
         closeSession,
       }}
     >
-      <ThemeContext.Provider value={{theme, changeTheme}}>
-      <GlobalStyle theme={theme}/>
-      <StyledWrapper>
-        <LanguageContext.Provider value={{ language, changeLanguage }}>
+      <ThemeContext.Provider value={{ theme, changeTheme }}>
+        <GlobalStyle theme={theme} />
+        <StyledWrapper>
+          <LanguageContext.Provider value={{ language, changeLanguage }}>
             <Header />
             <Main />
             <Footer nickname="@nickname" />
-        </LanguageContext.Provider>
-      </StyledWrapper>
+          </LanguageContext.Provider>
+        </StyledWrapper>
       </ThemeContext.Provider>
     </TimerContext.Provider>
   );

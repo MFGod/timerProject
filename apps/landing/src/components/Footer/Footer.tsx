@@ -1,26 +1,29 @@
-import * as React from 'react';
-import { StyledFooter } from '../styledComponents/StyledFooter';
+import { FC, useContext } from 'react';
 import { LanguageContext } from '../../app/app';
-import { Language } from '../../app/app';
-import { StyledNickname } from '../styledComponents/StyledNickname';
-//text={props.language === Language.RU ? 'Тема' : 'Theme'}
+
+import styled from 'styled-components';
+import { translation } from '../../translation/tranlations';
+
+const StyledNickname = styled.span`
+  color: #b40000;
+`;
+const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 214, 0, 1);
+`;
+
 interface FooterProps {
   nickname: string;
 }
 
-export const Footer: React.FC<FooterProps> = ({ nickname }) => {
+export const Footer: FC<FooterProps> = ({ nickname }) => {
+  const languageProps = useContext(LanguageContext);
   return (
-    <LanguageContext.Consumer>
-      {(props) => (
-        <StyledFooter>
-          {props.language === Language.RU
-            ? `Вы можете связаться со мной в telegram \u00A0` 
-            : `Contact me via telegram \u00A0`}
-            <StyledNickname>
-            {nickname}
-            </StyledNickname>
-        </StyledFooter>
-      )}
-    </LanguageContext.Consumer>
+    <StyledFooter>
+      {translation(languageProps.language, 'contacts')}
+      <StyledNickname>{nickname}</StyledNickname>
+    </StyledFooter>
   );
 };
