@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {  useContext } from 'react';
+import { useContext } from 'react';
 import { ThemeContext, TimerContext } from '../../app/app';
 import { LanguageContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
@@ -36,9 +36,9 @@ const ButtonRow = styled.div`
 `;
 
 export const Main = () => {
-const themeProps = useContext(ThemeContext);
-const timerProps = useContext(TimerContext);
-const languageProps = useContext(LanguageContext);
+  const themeProps = useContext(ThemeContext);
+  const timerProps = useContext(TimerContext);
+  const languageProps = useContext(LanguageContext);
 
   return (
     <div>
