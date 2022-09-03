@@ -55,12 +55,12 @@ export const ThemeContext = createContext<ThemeContextInterface>({});
 
 export function App() {
   const [started, setStarted] = useState(false);
-  const [mode, setMode] = useState(Mode.Theory);
+  const [mode, setMode] = useState<string>(Mode.Theory);
   const [count, setCount] = useState<number>(0);
   const [theoryTime, setTheoryTime] = useState<number>(0);
   const [practiceTime, setPracticeTime] = useState<number>(0);
-  const [language, setLanguage] = useState(Language.RU);
-  const [theme, setTheme] = useState(Theme.Black);
+  const [language, setLanguage] = useState<string>(Language.RU);
+  const [theme, setTheme] = useState<string>(Theme.Black);
 
   useEffect(() => {
     const interval = setInterval(() => {
