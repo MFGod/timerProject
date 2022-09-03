@@ -1,17 +1,17 @@
 export enum Language {
-   RU = 'Russian',
-   ENG = 'English',
- }
+  RU = 'Russian',
+  ENG = 'English',
+}
 interface translationInterface {
-   language: string;
-   theme: string;
-   theory: string;
-   practice: string;
-   start: string;
-   pause: string;
-   changeMode: string;
-   closeSession: string;
-   contacts: string;
+  language: string;
+  theme: string;
+  theory: string;
+  practice: string;
+  start: string;
+  pause: string;
+  changeMode: string;
+  closeSession: string;
+  contacts: string;
 }
 
 const RU: translationInterface = {
@@ -37,11 +37,14 @@ const EN: translationInterface = {
   contacts: 'Contact me via telegram',
 };
 
-export const translation = (language: string, key: keyof translationInterface) => {
-   switch (language) {
-      case Language.RU:
-         return RU[key];
-      default:
-         return EN[key];
-   }
+export const translation = (
+  language: string,
+  key: keyof translationInterface
+) => {
+  switch (language) {
+    case Language.RU:
+      return RU[key];
+    default:
+      return EN[key];
+  }
 };
