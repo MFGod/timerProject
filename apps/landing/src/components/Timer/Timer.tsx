@@ -8,14 +8,14 @@ const StyledTimerDescription = styled(TimerDescription)`
   color: #ffd600;
 `;
 
-interface TimerProps {
+interface TimerInterface {
   timerName?: string;
   time: number;
   color: string;
   className?: string;
 }
 
-export const Timer: FC<TimerProps> = ({
+export const Timer: FC<TimerInterface> = ({
   timerName,
   time,
   color,

@@ -23,7 +23,7 @@ const RU: translationInterface = {
   pause: 'пауза',
   changeMode: 'изменит режим',
   closeSession: 'закрыть сессию',
-  contacts: 'Вы можете co мной в telegram',
+  contacts: 'Вы можете связаться co мной в telegram',
 };
 const EN: translationInterface = {
   language: 'language - en',

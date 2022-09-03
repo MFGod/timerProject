@@ -44,9 +44,9 @@ const ButtonRow = styled.div`
 `;
 
 export const Main = () => {
-  const themeProps = useContext(ThemeContext);
-  const timerProps = useContext(TimerContext);
-  const languageProps = useContext(LanguageContext);
+  const themeContext = useContext(ThemeContext);
+  const timerContext = useContext(TimerContext);
+  const languageContext = useContext(LanguageContext);
 
   return (
     <div>
@@ -54,40 +54,40 @@ export const Main = () => {
         <StyledTimerWrapper>
           <>
             <SecondaryTimer
-              color={String(themeProps.theme)}
-              timerName={translation(languageProps.language, 'theory')}
-              time={timerProps.theoryTime}
+              color={String(themeContext.theme)}
+              timerName={translation(languageContext.language, 'theory')}
+              time={timerContext.theoryTime}
             />
             <SecondaryTimer
-              color={String(themeProps.theme)}
-              timerName={translation(languageProps.language, 'practice')}
-              time={timerProps.practiceTime}
+              color={String(themeContext.theme)}
+              timerName={translation(languageContext.language, 'practice')}
+              time={timerContext.practiceTime}
             />
           </>
         </StyledTimerWrapper>
-        <PrimaryTimer color="yellow" time={timerProps.count} />
+        <PrimaryTimer color="yellow" time={timerContext.count} />
       </TimerWrapper>
       <StyledMainButton>
         <ButtonRow>
           <StyledButton
-            onClick={timerProps.handleStart}
-            text={translation(languageProps.language, 'start')}
+            onClick={timerContext.handleStart}
+            text={translation(languageContext.language, 'start')}
           />
           <StyledButton
-            onClick={timerProps.handleStop}
-            text={translation(languageProps.language, 'pause')}
+            onClick={timerContext.handleStop}
+            text={translation(languageContext.language, 'pause')}
           />
         </ButtonRow>
         <ButtonRow>
           <StyledButton
-            onClick={timerProps.changeMode}
+            onClick={timerContext.changeMode}
             color="white"
-            text={translation(languageProps.language, 'changeMode')}
+            text={translation(languageContext.language, 'changeMode')}
           />
           <StyledButton
-            onClick={timerProps.closeSession}
+            onClick={timerContext.closeSession}
             color="white"
-            text={translation(languageProps.language, 'closeSession')}
+            text={translation(languageContext.language, 'closeSession')}
           />
         </ButtonRow>
       </StyledMainButton>

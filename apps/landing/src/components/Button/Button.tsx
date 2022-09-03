@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-interface ButtonProps {
+interface ButtonInterface {
   color?: string;
   className?: string;
   text: string;
   onClick?: () => void;
 }
 
-export const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonInterface> = ({
   color,
   className,
   text,

@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-interface CounterProps {
+interface CounterInterface {
   time: number;
   color: string;
   className?: string;
 }
 
-export const Counter: FC<CounterProps> = ({ time, color, className }) => {
+export const Counter: FC<CounterInterface> = ({ time, color, className }) => {
   const convertTimeToHHMMSS = (time: number) => {
     return new Date(1970, 0, 0, 0, 0, time, 0).toLocaleTimeString();
   };
