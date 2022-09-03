@@ -1,10 +1,9 @@
-import styled from 'styled-components';
 import { useContext } from 'react';
-import { ThemeContext, TimerContext } from '../../app/app';
-import { LanguageContext } from '../../app/app';
+import styled from 'styled-components';
+import { LanguageContext, ThemeContext, TimerContext } from '../../app/app';
+import { translation } from '../../translation/tranlations';
 import { StyledButton } from '../Button/Button';
 import { Timer } from '../Timer/Timer';
-import { translation } from '../../translation/tranlations';
 
 const PrimaryTimer = styled(Timer)`
   font-size: 96px;

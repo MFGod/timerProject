@@ -1,9 +1,9 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
 import { GlobalStyle } from '../styles/GlobalStyles';
-import styled from 'styled-components';
 import { Language } from '../translation/tranlations';
 
 const StyledWrapper = styled.div`

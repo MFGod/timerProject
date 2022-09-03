@@ -1,8 +1,8 @@
-import styled from 'styled-components';
 import { useContext } from 'react';
+import styled from 'styled-components';
 import { LanguageContext, ThemeContext } from '../../app/app';
-import { StyledButton } from '../Button/Button';
 import { translation } from '../../translation/tranlations';
+import { StyledButton } from '../Button/Button';
 
 const StyledHeader = styled.header`
   display: flex;
