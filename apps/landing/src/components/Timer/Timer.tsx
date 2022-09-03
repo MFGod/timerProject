@@ -23,24 +23,8 @@ export const Timer: FC<TimerProps> = ({
 }) => {
   return (
     <div>
-      <StyledTimerDescription
-        color={color}
-        timerName={timerName}
-      />
-      <StyledCounter
-        time={time}
-        className={className}
-        color={color}
-      />
+      <StyledTimerDescription color={color} timerName={timerName} />
+      <StyledCounter time={time} className={className} color={color} />
     </div>
   );
 };
-
-export const PrimaryTimer = styled(Timer)`
-   font-size: 96px;
-   margin: 46px 0px 58px 15px;
-`
-export const SecondaryTimer = styled(Timer)`
-   font-size: 32px;
-   margin: 0px 10px 10px 0px;
-`

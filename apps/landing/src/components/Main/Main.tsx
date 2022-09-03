@@ -3,8 +3,17 @@ import { useContext } from 'react';
 import { ThemeContext, TimerContext } from '../../app/app';
 import { LanguageContext } from '../../app/app';
 import { StyledButton } from '../Button/Button';
-import { PrimaryTimer, SecondaryTimer } from '../Timer/Timer';
+import { Timer } from '../Timer/Timer';
 import { translation } from '../../translation/tranlations';
+
+const PrimaryTimer = styled(Timer)`
+  font-size: 96px;
+  margin: 46px 0px 58px 15px;
+`;
+const SecondaryTimer = styled(Timer)`
+  font-size: 32px;
+  margin: 0px 10px 10px 0px;
+`;
 
 const TimerWrapper = styled.div`
   display: flex;

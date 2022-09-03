@@ -49,7 +49,7 @@ export const TimerContext = createContext<TimerContextInterface>({
 });
 
 export const LanguageContext = createContext<LanguageContextInterface>({
-   language:  Language.RU, 
+  language: Language.RU,
 });
 export const ThemeContext = createContext<ThemeContextInterface>({});
 
