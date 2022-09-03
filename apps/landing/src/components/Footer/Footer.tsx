@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
 import { LanguageContext } from '../../app/app';
-
 import styled from 'styled-components';
 import { translation } from '../../translation/tranlations';
 

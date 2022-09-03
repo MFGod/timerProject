@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { LanguageContext, ThemeContext } from '../../app/app';
-import { translation } from '../../translation/tranlations';
 import { StyledButton } from '../Button/Button';
+import { translation } from '../../translation/tranlations';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -23,6 +23,7 @@ const StyledHeaderWrapper = styled.div`
 export const Header = () => {
   const themeContext = useContext(ThemeContext);
   const languageContext = useContext(LanguageContext);
+
   return (
     <StyledHeader>
       <StyledHeaderWrapper>

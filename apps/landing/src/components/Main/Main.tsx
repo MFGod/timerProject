@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext, TimerContext } from '../../app/app';
 import { LanguageContext } from '../../app/app';
-import { translation } from '../../translation/tranlations';
 import { StyledButton } from '../Button/Button';
 import { PrimaryTimer, SecondaryTimer } from '../Timer/Timer';
+import { translation } from '../../translation/tranlations';
 
 const TimerWrapper = styled.div`
   display: flex;

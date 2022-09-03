@@ -2,8 +2,9 @@ import { createContext, useState, useEffect } from 'react';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
-import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
+import { GlobalStyle } from '../styles/GlobalStyles';
 import styled from 'styled-components';
+import { Language } from '../translation/tranlations';
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -34,11 +35,6 @@ interface ThemeContextInterface {
 export enum Theme {
   White = 'WhiteTheme',
   Black = 'BlackTheme',
-}
-
-export enum Language {
-  RU = 'Russian',
-  ENG = 'English',
 }
 
 enum Mode {
