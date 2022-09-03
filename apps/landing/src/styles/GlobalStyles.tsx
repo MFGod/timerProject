@@ -6,7 +6,6 @@ export const GlobalStyle = createGlobalStyle`
    
    font-family: 'Inter', sans-serif;
    font-weight: 700;
-
    ${(themeProps) => {
      switch (themeProps.theme) {
        case 'WhiteTheme':
@@ -16,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
      }
    }};
   }
-
   #root{
    height: 100%;
   }

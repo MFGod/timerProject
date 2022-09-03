@@ -1,12 +1,12 @@
 import { FC, useContext } from 'react';
-import { LanguageContext } from '../../app/app';
-
 import styled from 'styled-components';
+import { LanguageContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
 
 const StyledNickname = styled.span`
   color: #b40000;
 `;
+
 const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
@@ -23,7 +23,10 @@ export const Footer: FC<FooterProps> = ({ nickname }) => {
   return (
     <StyledFooter>
       {translation(languageProps.language, 'contacts')}
-      <StyledNickname>{nickname}</StyledNickname>
+      <StyledNickname>
+        {'\u00A0'}
+        {nickname}
+      </StyledNickname>
     </StyledFooter>
   );
 };

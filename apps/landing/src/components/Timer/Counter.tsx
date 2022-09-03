@@ -1,34 +1,25 @@
-import { FC } from 'react'; 
+import { FC } from 'react';
 import styled from 'styled-components';
 
 interface CounterProps {
   time: number;
   color: string;
   className?: string;
-  fontSize?: string;
 }
 
-export const Counter: FC<CounterProps> = ({
-  time,
-  color,
-  className,
-  fontSize,
-}) => {
+export const Counter: FC<CounterProps> = ({ time, color, className }) => {
   const convertTimeToHHMMSS = (time: number) => {
     return new Date(1970, 0, 0, 0, 0, time, 0).toLocaleTimeString();
   };
 
   return (
-    <h2 color={color} className={className} font-size={fontSize}>
-      {' '}
+    <h2 color={color} className={className}>
       {convertTimeToHHMMSS(time)}
     </h2>
   );
 };
 
-
 export const StyledCounter = styled(Counter)`
-  color: #ffffff;
   ${(props) => {
     switch (props.color) {
       case 'yellow':

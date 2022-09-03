@@ -1,10 +1,18 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
-import {  useContext } from 'react';
-import { ThemeContext, TimerContext } from '../../app/app';
-import { LanguageContext } from '../../app/app';
+import { LanguageContext, ThemeContext, TimerContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
 import { StyledButton } from '../Button/Button';
-import { PrimaryTimer, SecondaryTimer } from '../Timer/Timer';
+import { Timer } from '../Timer/Timer';
+
+const PrimaryTimer = styled(Timer)`
+  font-size: 96px;
+  margin: 46px 0px 58px 15px;
+`;
+const SecondaryTimer = styled(Timer)`
+  font-size: 32px;
+  margin: 0px 10px 10px 0px;
+`;
 
 const TimerWrapper = styled.div`
   display: flex;
@@ -36,9 +44,9 @@ const ButtonRow = styled.div`
 `;
 
 export const Main = () => {
-const themeProps = useContext(ThemeContext);
-const timerProps = useContext(TimerContext);
-const languageProps = useContext(LanguageContext);
+  const themeProps = useContext(ThemeContext);
+  const timerProps = useContext(TimerContext);
+  const languageProps = useContext(LanguageContext);
 
   return (
     <div>

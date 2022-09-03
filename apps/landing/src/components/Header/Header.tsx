@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { useContext } from 'react';
+import styled from 'styled-components';
 import { LanguageContext, ThemeContext } from '../../app/app';
 import { translation } from '../../translation/tranlations';
 import { StyledButton } from '../Button/Button';
@@ -21,20 +21,21 @@ const StyledHeaderWrapper = styled.div`
 `;
 
 export const Header = () => {
-  const themeProps = useContext(ThemeContext);
-  const languageProps = useContext(LanguageContext);
+  const themeContext = useContext(ThemeContext);
+  const languageContext = useContext(LanguageContext);
+
   return (
     <StyledHeader>
       <StyledHeaderWrapper>
         <StyledButton
-          onClick={languageProps.changeLanguage}
+          onClick={languageContext.changeLanguage}
           color="white"
-          text={translation(languageProps.language, 'language')}
+          text={translation(languageContext.language, 'language')}
         />
         <StyledButton
-          onClick={themeProps.changeTheme}
-          color={'white' + themeProps.theme}
-          text={translation(languageProps.language, 'theme')}
+          onClick={themeContext.changeTheme}
+          color={'white' + themeContext.theme}
+          text={translation(languageContext.language, 'theme')}
         />
       </StyledHeaderWrapper>
     </StyledHeader>

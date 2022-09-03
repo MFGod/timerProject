@@ -1,9 +1,10 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
 import { Main } from '../components/Main/Main';
-import { GlobalStyle } from '../components/styledComponents/GlobalStyle';
-import styled from 'styled-components';
+import { GlobalStyle } from '../styles/GlobalStyles';
+import { Language } from '../translation/tranlations';
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -36,11 +37,6 @@ export enum Theme {
   Black = 'BlackTheme',
 }
 
-export enum Language {
-  RU = 'Russian',
-  ENG = 'English',
-}
-
 enum Mode {
   Theory = 'theory',
   Practice = 'practice',
@@ -53,18 +49,18 @@ export const TimerContext = createContext<TimerContextInterface>({
 });
 
 export const LanguageContext = createContext<LanguageContextInterface>({
-   language:  Language.RU, 
+  language: Language.RU,
 });
 export const ThemeContext = createContext<ThemeContextInterface>({});
 
 export function App() {
   const [started, setStarted] = useState(false);
-  const [mode, setMode] = useState(Mode.Theory);
+  const [mode, setMode] = useState<string>(Mode.Theory);
   const [count, setCount] = useState<number>(0);
   const [theoryTime, setTheoryTime] = useState<number>(0);
   const [practiceTime, setPracticeTime] = useState<number>(0);
-  const [language, setLanguage] = useState(Language.RU);
-  const [theme, setTheme] = useState(Theme.Black);
+  const [language, setLanguage] = useState<string>(Language.RU);
+  const [theme, setTheme] = useState<string>(Theme.Black);
 
   useEffect(() => {
     const interval = setInterval(() => {
