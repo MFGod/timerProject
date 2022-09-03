@@ -14,19 +14,16 @@ const StyledFooter = styled.footer`
   color: rgba(255, 214, 0, 1);
 `;
 
-interface FooterProps {
+interface FooterInterface {
   nickname: string;
 }
 
-export const Footer: FC<FooterProps> = ({ nickname }) => {
-  const languageProps = useContext(LanguageContext);
+export const Footer: FC<FooterInterface> = ({ nickname }) => {
+  const languageContext = useContext(LanguageContext);
   return (
     <StyledFooter>
-      {translation(languageProps.language, 'contacts')}
-      <StyledNickname>
-        {'\u00A0'}
-        {nickname}
-      </StyledNickname>
+      {[translation(languageContext.language, 'contacts'), ' '].join('')}
+      <StyledNickname>{nickname}</StyledNickname>
     </StyledFooter>
   );
 };
